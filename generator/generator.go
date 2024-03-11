@@ -142,7 +142,6 @@ func (g *Generator) fillPackageModule() error {
 	t := template.Must(template.New("packageModule").Parse(tmpl.PackageModule))
 
 	mdL := make([]tmpl.ModuleData, len(g.resultModules))
-
 	for i, m := range g.resultModules {
 		mdL[i] = tmpl.ModuleData{
 			ImplementType: m,

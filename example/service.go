@@ -1,11 +1,11 @@
 package example
 
 type Service struct {
-	options Options
+	options *Options
 	db      Store
 }
 
-func NewService(opt Options, db Store) *Service {
+func NewService(opt *Options, db Store) *Service {
 	return &Service{
 		options: opt,
 		db:      db,

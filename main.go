@@ -4,8 +4,10 @@ import (
 	"flag"
 
 	"github.com/jsperandio/autofx/analyzer"
+	"github.com/jsperandio/autofx/example"
 	"github.com/jsperandio/autofx/generator"
 	"github.com/jsperandio/autofx/log"
+	"go.uber.org/fx"
 )
 
 var (
@@ -45,4 +47,10 @@ func main() {
 	if err != nil {
 		log.Error(err)
 	}
+
+	app := fx.New(
+		example.Module(),
+		fx.Invoke(example.Run),
+	)
+	app.Run()
 }
